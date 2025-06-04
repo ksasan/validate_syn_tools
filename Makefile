@@ -25,5 +25,7 @@ chk_dc
 	    dc_shell -f synth.tcl | tee dc_run.log && \
 	    grep -i "compiled successfully" dc_run.log
 	@echo "DESIGN COMPILER validated: Design compiler basic run for a simple and gate validated successfully!"
+	test -f synthesized.v && echo "✅ Synthesized netlist generated." || echo "❌ Netlist missing."
+
 
 
