@@ -1,4 +1,7 @@
 # Makefile
+# Assumptions
+# 1. License path variable has been set
+# 2. All relevant tools binaries are available in PATH variable
 
 all: chk_verilog chk_hspice
 
