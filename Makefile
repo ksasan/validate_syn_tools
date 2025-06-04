@@ -28,8 +28,14 @@ chk_dc:
 	    dc_shell -f synth.tcl | tee dc_run.log && \
 	    grep -i "Number of combinational cells.*1" dc_run.log && \
 	    grep -i "Elapsed time for this session" dc_run.log
-	@echo "✅ DESIGN COMPILER validated: Design compiler basic run for a simple and gate validated successfully!"
+	@echo "✅ DESIGN COMPILER validated: Design compiler basic run for a simple AND gate validated successfully!"
 	@cd dc && test -f synthesized.v && echo "✅ Synthesized netlist generated." || echo "❌ Netlist missing."
 
+
+clean:
+	@echo "🧹 Cleaning up..."
+	@cd dc && rm -f dc_run.log synthesized.v command.log *.mr *.ddc *.syn *.rep
+	@cd hspice && rm -f inverter.*0 inverter.lis
+	@cd verilog && rm -rf csrc simv simv.daidir ucli.key
 
 
